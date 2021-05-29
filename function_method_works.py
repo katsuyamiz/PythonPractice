@@ -1,3 +1,5 @@
+
+
 def vol(rad):
 
     return 4/3 * 3.14*rad**3
@@ -6,6 +8,7 @@ def vol(rad):
 result = vol(2)
 print(result)
 
+print('-------')
 
 def ran_check(num, low, high):
     if low < num < high:
@@ -13,8 +16,9 @@ def ran_check(num, low, high):
     else:
         return f'{num} is in not the range between {low} and {high}'
 
-
-print('-------')
+"""
+num in range(low, high + 1)
+"""
 
 result = ran_check(5, 2, 7)
 print(result)
@@ -40,6 +44,13 @@ def up_low(s):
 result = up_low('Hello Mr. Rogers, how are you this fine Tuesday?')
 print(result)
 
+
+"""
+d = {'upper': 0, 'lower': 0}
+d['upper'] += 1
+d['lower'] += 1
+"""
+
 print('-------')
 
 
@@ -55,6 +66,9 @@ def unique_list(lst):
 result = unique_list([1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 5])
 print(result)
 
+"""
+set(lst)
+"""
 
 print('-------')
 
@@ -78,14 +92,37 @@ def palindrome(s):
     n = 0
     while n <= len(s)/2:
         if s[n] == s[-(n + 1)]:
-            lst.append(0)
+            lst.append(True)
         else:
-            lst.append(1)
+            lst.append(False)
         n += 1
     print(lst)
-    return 1 not in lst
+    return all(lst)
 
 
-result = palindrome('abccba')
+result = palindrome('asddsa')
 print(result)
+"""
+s.replace(' ', '')
+remove space
+"""
+print('------')
+
+import string
+
+
+def is_pangram(str1, alphabet=string.ascii_lowercase):
+
+    result1 = set(str1.lower())
+    if ' ' in result1:
+        result1.remove(' ')
+    result2 = set(alphabet)
+    if result1 == result2:
+        return True
+    else:
+        return False
+
+
+print(is_pangram("The quick brown fox jumps over the lazy dog"))
+
 
